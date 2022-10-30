@@ -1,0 +1,33 @@
+The upower command-line tool helps extract information related to the power source (batteries). It provides an interface to list down all the power sources of your PC or laptop.
+
+upower -i /org/freedesktop/UPower/devices/battery_BAT0
+
+upower -i `upower -e | grep 'BAT'`
+
+upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"
+
+The above are three different ways of using acpi command to find power source information.
+
+
+Use cat and find
+
+The “cat” and “find” commands also help find details about your battery and power source.
+
+Syntax
+
+For the battery capacity, the syntax would be:
+
+cat /sys/class/power_supply/BAT0/capacity
+
+
+For more detailed battery information use the find command.
+
+Syntax
+
+And the syntax is,
+
+find /sys/class/power_supply/BAT0/ -type f | xargs -tn1 cat
+
+
+link
+https://www.linuxjournal.com/content/how-check-battery-status-using-linux-command-line

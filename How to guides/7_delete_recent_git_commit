@@ -1,0 +1,10 @@
+## Delete the top most git commit
+
+## This method deletes all the staged files as well
+git reset --hard HEAD^
+
+## This method preserves the staged files
+git reset --soft HEAD^
+
+## For more details use the man page 
+git reset man
