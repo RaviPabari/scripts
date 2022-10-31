@@ -1,0 +1,7 @@
+## To check the OVERALL disk usage, free space, use percentage
+
+df -H
+
+
+## to check the current directory storage usage
+du -sh

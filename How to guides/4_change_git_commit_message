@@ -1,0 +1,33 @@
+### Not pushed commit
+To change the message of the most recent commit that has not been pushed to the remote repository, commit it again using the --amend flag.
+
+Navigate to the repository directory in your terminal.
+
+Run the following command to amend (change) the message of the latest commit:
+
+git commit --amend -m "New commit message."
+Copy
+What the command does is overwriting the most recent commit with the new one.
+
+The -m option allows you to write the new message on the command line without opening an editor session.
+
+Before changing the commit message, you can also add other changes you previously forgot:
+# git add .
+# git commit --amend -m "New commit message."
+
+#####################
+
+### Pushed commit
+The amended (changed) commit is a new entity with a different SHA-1. The previous commit will no longer exist in the current branch.
+Generally, you should avoid amending a commit that is already pushed as it may cause issues to people who based their work on this commit. It is a good idea to consult your fellow developers before changing a pushed commit.
+If you changed the message of the most recently pushed commit, you would have to force push it.
+
+Navigate to the repository.
+
+Amend the message of the latest pushed commit:
+# git commit --amend -m "New commit message."
+
+Force push to update the history of the remote repository:
+# git push --force <remoteName> <branchName>
+
+

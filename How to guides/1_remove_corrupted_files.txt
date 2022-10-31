@@ -1,0 +1,42 @@
+## https://www.tecmint.com/sub-process-usr-bin-dpkg-returned-an-error-in-ubuntu/ 
+[
+    Errors were encountered while processing:
+    google-chrome-stable
+    E: Sub-process /usr/bin/dpkg returned an error code (1)
+]
+------------------------
+
+Solution 1: Reconfiguring the dpkg Package
+
+ sudo dpkg --configure
+
+------------------------
+
+Solution 2: Force Install the Troublesome Package
+
+ sudo apt install -f
+OR
+ sudo apt install--fix-broken
+
+The -f option & --fix-broken can be interchangeably used to fix broken dependencies resulting 
+from an interrupted package or cached package download.
+
+-------------------------------
+
+Solution 3: Purge the Bad or Corrupted Software Package
+
+ sudo apt remove --purge package_name
+ sudo apt clean
+ sudo apt autoremove
+
+-------------------------------
+
+Solution 4: Remove all the Files Associated with the Package
+
+ sudo ls -l /var/lib/dpkg/info | grep -i package_name
+
+ sudo rm -r /var/lib/dpkg/info/package-name.*
+ 
+ sudo apt update
+
+----------------------------------
